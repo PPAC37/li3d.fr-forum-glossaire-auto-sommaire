@@ -3,8 +3,8 @@ name: Build, Run and Deploy static Sommaire index to Pages
 
 on:
   schedule: 
-    # Daily at 8:20 UTC
-    - cron: '20 8 * * *'
+    # Daily at 12:20 UTC
+    - cron: '20 12 * * *'
 
   # Runs on pushes targeting the default branch
   push:
