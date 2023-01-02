@@ -2,6 +2,10 @@
 name: Build, Run and Deploy static Sommaire index to Pages 
 
 on:
+  schedule: 
+    # Daily at 8:20 UTC
+    - cron: '20 8 * * *'
+
   # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
@@ -37,7 +41,7 @@ jobs:
           java-version: '17'
           cache: 'maven'
      # Runs a single command using the runners shell
-      - name: run java jar
+      - name: run java jar li3dfrGlossaire*.jar
         shell: bash
         run:  |
            java -jar jar/li3dfrGlossaire*-with-dependencies.jar &&
@@ -51,7 +55,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          # Upload entire repository by using '.'
+          # Upload ( entire repository by using '.' )
           path: './www_tmp/'
       - name: Deploy to GitHub Pages
         id: deployment
